@@ -177,16 +177,16 @@ double DrawingCanvas::bondLength(Atom* atom1, Atom* atom2)
 				pow(atom1->z()-atom2->z(),2.0)));
 }
 
-void DrawingCanvas::setAcceptsHovers(bool arg)
+void DrawingCanvas::setAcceptHovers(bool arg)
 {
 	foreach(Atom *atom, atomsList){
-		atom->setAcceptsHovers(arg);
+		atom->setAcceptHovers(arg);
 	}
 	foreach(Bond *bond, bondsList){
-		bond->setAcceptsHovers(arg);
+		bond->setAcceptHovers(arg);
 	}
 	foreach(Arrow *arrow, arrowsList){
-		arrow->setAcceptsHovers(arg);
+		arrow->setAcceptHovers(arg);
 	}
 	// TODO angles, labels, arrows...
 }

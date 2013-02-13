@@ -200,9 +200,9 @@ void MainWindow::mouseModeButtonGroupClicked(int buttonID)
 
 	canvas->setMode(DrawingCanvas::Mode(mouseModeButtonGroup->checkedId()));
 	if(mouseModeButtonGroup->checkedId() == DrawingCanvas::Rotate){
-		canvas->setAcceptsHovers(false);
+		canvas->setAcceptHovers(false);
 	}else{
-		canvas->setAcceptsHovers(true);
+		canvas->setAcceptHovers(true);
 	}
 	if(mouseModeButtonGroup->checkedId() == DrawingCanvas::Rotate){
 		view->setCursor(canvas->rotateCursor());

@@ -64,11 +64,19 @@ COMPILING
 If you can't find a pre-compiled binary for your OS, then to compile from
 source is pretty simple.
 
-1) Download and install Qt from http://qt.nokia.com/downloads
-2) Head into the compilation directory in the chemvp source folder
-3) Type 'qmake'
+1) Download and install Qt5 from Nokia
+2) Make a build directory in the top-level source dir
+3) Run ../qmake_script from the build directory
 4) Type 'make'
 
+The last line of qmake_script might need to be modified for each different
+platform.
+
+KNOWN ISSUES
+============
+
+The current version of Qt5 doesn't like PS or EPS output, it seems.  PDF also
+seems to be broken right now.
 
 WARRANTY
 ========
@@ -94,7 +102,7 @@ incorporate them into the code.
 
 AUTHORS
 =======
-Andy Simmonett andysim@ccc.uga.edu
+Andy Simmonett andy.simmonett@gmail.com
 Justin M. Turney jturney@ccc.uga.edu
 H. Parker Shelton
 

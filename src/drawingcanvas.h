@@ -3,6 +3,7 @@
 
 #include <QGraphicsScene>
 #include <QMessageBox>
+#include <QColorDialog>
 #include <QtGui>
 #include <QMenu>
 #include <QList>
@@ -51,7 +52,7 @@ public:
 	void updateAngles();
 	void updateArrows();
 	void updateTextLabels();
-	void setAcceptsHovers(bool arg);
+	void setAcceptHovers(bool arg);
 	void loadFromParser();
 	void setAtomLabels(QString text);
 	void rotateFromInitialCoordinates();

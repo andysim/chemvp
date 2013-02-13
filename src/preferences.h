@@ -1,7 +1,7 @@
 #ifndef PREFERENCES_H
 #define PREFERENCES_H
 
-#include <QStackedLayout>
+#include <QStackedWidget>
 #include <QButtonGroup>
 #include <QPushButton>
 #include <QToolButton>

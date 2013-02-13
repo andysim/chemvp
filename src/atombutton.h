@@ -3,7 +3,7 @@
 
 #include <QToolButton>
 #include <QPushButton>
-#include <QDialog>
+#include <QColorDialog>
 #include <QColor>
 
 #include "atom.h"
