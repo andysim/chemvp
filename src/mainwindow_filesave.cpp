@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include <QPrinter>
+#include <QPdfWriter>
 
 void MainWindow::save()
 {
@@ -131,13 +132,16 @@ void MainWindow::saveImage(const QString &fileName)
 		image->save(fileName);
 		delete image;
 	}else if(fileType == PDF){
-		printer->setOutputFormat(QPrinter::PdfFormat);
-		painter->begin(printer);
-		painter->setRenderHint(QPainter::SmoothPixmapTransform, true);
-		painter->setRenderHint(QPainter::Antialiasing, true);
-		painter->setRenderHint(QPainter::HighQualityAntialiasing, true);
+        QPdfWriter* pdfwriter = new QPdfWriter(fileName);
+		//printer->setOutputFormat(QPrinter::PdfFormat);
+		//painter->begin(printer);
+		painter->begin(pdfwriter);
+		//painter->setRenderHint(QPainter::SmoothPixmapTransform, true);
+		//painter->setRenderHint(QPainter::Antialiasing, true);
+		//painter->setRenderHint(QPainter::HighQualityAntialiasing, true);
 		canvas->render(painter);
 		painter->end();
+        delete pdfwriter;
 //	}else if(fileType == PostScript){
 //		printer->setOutputFormat(QPrinter::PostScriptFormat);
 //		painter->begin(printer);
