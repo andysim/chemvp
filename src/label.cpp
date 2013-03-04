@@ -1,5 +1,6 @@
 #include "label.h"
 #include "drawingcanvas.h"
+#include <algorithm>
 
 Label::Label(LabelType type, double value, DrawingInfo *info, QGraphicsItem *parent, QGraphicsScene *scene)
 		:QGraphicsTextItem(parent),
@@ -323,7 +324,7 @@ void Label::serialize(QXmlStreamWriter* writer)
 		foreach(FontFormatTuple* v, *ql)
 			list.push_back(v);
 	}
-	sort(list.begin(), list.end(), FontFormatTuple::compareTo);
+	std::sort(list.begin(), list.end(), FontFormatTuple::compareTo);
 
 	writer->writeAttribute("formats", QString("%1").arg(list.size()));
 	foreach(FontFormatTuple* t, list)
