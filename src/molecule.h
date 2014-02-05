@@ -20,9 +20,15 @@ public:
     Molecule() {}
     ~Molecule() {}
 
+    void invert_y(){
+	    foreach(AtomEntry *atom, _molecule){
+	    	atom->y *= -1.0;
+	    }
+    }
     void addAtom(AtomEntry *atom) {_molecule.push_back(atom);}
     void setComment(QString c) {_comment = c;}
     std::vector<AtomEntry*>& atomsList() {return _molecule;}
+
     int numAtoms() const {return _molecule.size();}
 	
 	void serialize(QXmlStreamWriter* writer)

@@ -162,6 +162,8 @@ void FileParser::readFile()
 	}
 	if (myMoleculeList.size()) {
 		currentGeometry = myMoleculeList.size() - 1;
+        // This should (hopefully) account for the x, -y coordinate system used for the screen
+        myMoleculeList[currentGeometry]->invert_y();
 	}
 	infile.close();
 }
