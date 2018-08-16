@@ -12,6 +12,7 @@
 #include <QUndoCommand>
 #include <QDebug>
 #include <QSettings>
+#include <QPrinter>
 #include <QMap>
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>

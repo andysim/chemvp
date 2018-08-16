@@ -177,16 +177,16 @@ double DrawingCanvas::bondLength(Atom* atom1, Atom* atom2)
 				pow(atom1->z()-atom2->z(),2.0)));
 }
 
-void DrawingCanvas::setAcceptsHovers(bool arg)
+void DrawingCanvas::setAcceptHovers(bool arg)
 {
 	foreach(Atom *atom, atomsList){
-		atom->setAcceptsHovers(arg);
+		atom->setAcceptHovers(arg);
 	}
 	foreach(Bond *bond, bondsList){
-		bond->setAcceptsHovers(arg);
+		bond->setAcceptHovers(arg);
 	}
 	foreach(Arrow *arrow, arrowsList){
-		arrow->setAcceptsHovers(arg);
+		arrow->setAcceptHovers(arg);
 	}
 	// TODO angles, labels, arrows...
 }
@@ -496,7 +496,7 @@ void DrawingCanvas::determineRotationAngles() // HPS
 	printf("Stored Rotations: %6.4f %6.4f %6.4f\n", xRot, yRot, zRot);
 	// Determine the corresponding euler angles x->y->z
 	double theta, phi, omega;
-	if(!(abs(rotationMatrix[2][0])-1E-8 < 1 && abs(rotationMatrix[2][0]+1E-8 > 1)))
+	if(!(abs(rotationMatrix[2][0])-1E-8 < 1 && abs(rotationMatrix[2][0]+1E-8) > 1))
 	{
 		double theta1 = -asin(rotationMatrix[2][0]);
 		double theta2 = PI - theta1;

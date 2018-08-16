@@ -3,7 +3,7 @@
 #include <algorithm>
 
 Label::Label(LabelType type, double value, DrawingInfo *info, QGraphicsItem *parent, QGraphicsScene *scene)
-		:QGraphicsTextItem(parent, scene),
+		:QGraphicsTextItem(parent),
 		myType(type),
 		myDX(0.0),
 		myDY(0.0),

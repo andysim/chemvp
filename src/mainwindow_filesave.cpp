@@ -14,7 +14,7 @@ void MainWindow::save()
 
 void MainWindow::saveAs()
 {
-	QFileDialog* saveAsDialog = new QFileDialog(this, "Save File As", QDir::homePath(), "CheMVP Project File (*.chmvp);;Encapsulated PostScript (*.eps);;Portable Document Format (*.pdf);;Portable Network Graphic (*.png);;PostScript (*.ps);;Scalable Vector Graphic (*.svg);;Tagged Image File Format (*.tiff)");
+	QFileDialog* saveAsDialog = new QFileDialog(this, "Save File As", QDir::homePath(), "CheMVP Project File (*.chmvp);;Portable Document Format (*.pdf);;Portable Network Graphic (*.png);;Scalable Vector Graphic (*.svg);;Tagged Image File Format (*.tiff)");
 	saveAsDialog->setAcceptMode(QFileDialog::AcceptSave);
 	saveAsDialog->setFileMode(QFileDialog::AnyFile);
 	if(saveAsDialog->exec())
@@ -136,18 +136,10 @@ void MainWindow::saveImage(const QString &fileName)
 		painter->setRenderHint(QPainter::HighQualityAntialiasing, true);
 		canvas->render(painter);
 		painter->end();
-	}else if(fileType == PostScript){
-		printer->setOutputFormat(QPrinter::PostScriptFormat);
-		painter->begin(printer);
-		painter->setRenderHint(QPainter::SmoothPixmapTransform, true);
-		painter->setRenderHint(QPainter::Antialiasing, true);
-		painter->setRenderHint(QPainter::HighQualityAntialiasing, true);
-		canvas->render(painter);
-		painter->end();
 	}else{
 		QString message("Unsupported file type:\n\n");
 		message += fileName;
-		message += "\n\nSupported extensions are\n.pdf, .svg, .ps, .eps, .png, .tiff, .tif, .chmvp";
+		message += "\n\nSupported extensions are\n.pdf, .svg, .png, .tiff, .tif, .chmvp";
 		error(message, __FILE__, __LINE__);
 		return;
 	}
@@ -162,10 +154,6 @@ MainWindow::FileType MainWindow::determineFileType(const QString &fileName)
 	if(re.exactMatch(fileName)) return PDF;
 	re.setPattern(".*\\.svg");
 	if(re.exactMatch(fileName)) return SVG;
-	re.setPattern(".*\\.ps");
-	if(re.exactMatch(fileName)) return PostScript;
-	re.setPattern(".*\\.eps");
-	if(re.exactMatch(fileName)) return PostScript;
 	re.setPattern(".*\\.tif");
 	if(re.exactMatch(fileName)) return TIFF;
 	re.setPattern(".*\\.tiff");

@@ -3,6 +3,7 @@
 
 #include <QToolButton>
 #include <QPushButton>
+#include <QColorDialog>
 #include <QDialog>
 #include <QColor>
 
